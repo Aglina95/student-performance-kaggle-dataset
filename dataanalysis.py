@@ -59,16 +59,16 @@ total_male = count_data_points(gender_data, "male")
 
 
 '''Calculates percentage'''
-def calc_percentage(total_data_points, category_data_point, total_count_of_category_data_points):
-    for item in total_data_points:
-        if item == category_data_point:
-            division = total_count_of_category_data_points / len(total_data_points)
-            percentage = division * 100
+def calc_percentage(total_data_points, total_count_of_category_data_points):
+    division = total_count_of_category_data_points / len(total_data_points)
+    percentage = division * 100
     
     return round(percentage,2)
 
-female_percentage = calc_percentage(gender_data, 'female', total_female)
-male_percentage = calc_percentage(gender_data, 'male', total_male)
+female_percentage = calc_percentage(gender_data, total_female)
+male_percentage = calc_percentage(gender_data, total_male)
+
+print(female_percentage )
 
 ''' Converts to integer'''
 def convert_to_integer(lst):
@@ -89,7 +89,9 @@ def average_score(lst):
     total = 0
     for item in lst:
         total += item
-        average = total / len(lst)
+    
+    average = total / len(lst)
+
     return round(average, 1)
 
 average_math_score = average_score(math_score_data_ints)
@@ -127,7 +129,7 @@ def find_average_score_by_specific_category_data_point(lst, category_data_point)
             score_by_category.append([data_point_label, i[1]])
             subject_score = get_column(score_by_category, 1)
     mean = average_score(subject_score)
-    return round(mean, 2)
+    return mean
 
 
 parental_education_some_college_average_math_score = find_average_score_by_specific_category_data_point(math_score_and_parental_education, 'some college')
@@ -136,7 +138,6 @@ parental_education_some_high_school_average_math_score = find_average_score_by_s
 parental_education_associatesdegree_average_math_score = find_average_score_by_specific_category_data_point(math_score_and_parental_education, "associate's degree")
 parental_education_bachelors_average_math_score = find_average_score_by_specific_category_data_point(math_score_and_parental_education, "bachelor's degree")
 parental_education_masters_average_math_score = find_average_score_by_specific_category_data_point(math_score_and_parental_education, "master's degree")
-
 
 parental_education_some_college_average_reading_score = find_average_score_by_specific_category_data_point(reading_score_and_parental_education, 'some college')
 parental_education_high_school_average_reading_score = find_average_score_by_specific_category_data_point(reading_score_and_parental_education, 'high school')
