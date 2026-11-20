@@ -3,6 +3,7 @@ import math
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import norm
+from scipy import stats
 
 
 '''Open and read any csv file and return its rows as a list of lists'''
@@ -234,6 +235,92 @@ math_score_std_deviation = standard_deviation(math_score_data_ints, average_math
 reading_score_std_deviation = standard_deviation(reading_score_data_ints, average_reading_score)
 writing_score_std_deviation = standard_deviation(writing_score_data_ints, average_writing_score)
 
+def muliply_lst_items(lst1, lst2):
+    result = []
+
+    for i in range(len(lst1)):
+        result.append(lst1[i] * lst2[i])
+
+    return result 
+
+def find_slope_and_intercept(lst1, lst2, mean_x, mean_y):
+
+    """Calculate the slope (a) and y-intercept (b) for linear regression (y = ax + b).
+
+    Formulas:
+        numerator   = Σ((x_i - x̄) * (y_i - ȳ))
+        denominator = Σ((x_i - x̄)²)
+        
+        a = numerator / denominator
+        b = ȳ - (a * x̄)"""
+    
+    '''Find slope'''
+    dist_x = []
+    dist_y = []
+
+    for score in lst1:
+        '''(\(x_i - \bar{x}\))'''
+        distance_x = score - mean_x
+        dist_x.append(distance_x)
+    for score in lst2:
+        '''(\(y_i - \bar{y}\))'''
+        distance_y = score - mean_y
+        dist_y.append(distance_y)
+
+    #Calculates numerator
+    multiplied_distances = muliply_lst_items(dist_x, dist_y)
+
+    sum_it = 0
+    for i in range(len(multiplied_distances)):
+        sum_it = sum_it + multiplied_distances[i]
+
+    #Calc denominator. Square Subject A distance
+    squared_distance_subject_A_total = 0
+    squared_distance_subject_A = muliply_lst_items(dist_x, dist_x)
+    for i in range(len(squared_distance_subject_A)):
+            squared_distance_subject_A_total = squared_distance_subject_A_total + squared_distance_subject_A[i] 
+
+    slope_a = sum_it / squared_distance_subject_A_total
+    '''b = ȳ - (a * x̄)'''
+
+    intercept = mean_y - slope_a * mean_x
+
+    
+    return round(slope_a, 2) , round(intercept, 2)
+
+    
+slope, intercept = find_slope_and_intercept(math_score_data_ints, reading_score_data_ints, average_math_score, average_reading_score)
+
+'''Linear regression'''
+def linear_regression(x, alpha, beta):
+    predicted_value = alpha + beta * x
+    return predicted_value
+
+#Generate predicted reading scores
+predicted_reading_scores = []
+
+for x in math_score_data_ints:
+    y = linear_regression(x, intercept, slope)
+    predicted_reading_scores.append(y)
+
+#Print predicted scores
+for score in predicted_reading_scores:
+    print(round(score, 2))
+
+'''Create scatter plot'''
+slope, intercept, r, p, std_err = stats.linregress(math_score_data_ints, reading_score_data_ints)
+
+def predicted_score(x):
+  return slope * x + intercept
+
+mymodel = list(map(predicted_score, math_score_data_ints))
+
+plt.scatter(math_score_data_ints, reading_score_data_ints)
+plt.plot(math_score_data_ints, mymodel)
+plt.xlabel("Math scores")
+plt.ylabel("Reading scores")
+plt.title("Linear Regression: Math vs Reading Scores")
+plt.show() 
 
 '''Make descriptives table using matplotlib'''
 list_of_descriptives = [[average_math_score,
