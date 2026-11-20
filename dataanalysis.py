@@ -322,6 +322,7 @@ plt.ylabel("Reading scores")
 plt.title("Linear Regression: Math vs Reading Scores")
 plt.show() 
 
+
 '''Make descriptives table using matplotlib'''
 list_of_descriptives = [[average_math_score,
                         average_reading_score,
