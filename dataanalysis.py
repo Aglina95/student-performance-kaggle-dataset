@@ -488,7 +488,7 @@ bar_positions1 = np.arange(len(test_preparation_categories))
 bar_positions2 = bar_positions1 + bar_width
 bar_positions3 = bar_positions2 + bar_width
 
-# Creating the bars
+#Create the bars
 plt.bar(bar_positions1, test_preparation_average_math_score,
         width=bar_width, label='Math', color='#9966CC')
 
@@ -498,24 +498,24 @@ plt.bar(bar_positions2, test_preparation_average_reading_score,
 plt.bar(bar_positions3, test_preparation_average_writing_score,
         width=bar_width, label='Writing', color='#4B0082')
 
-# Adding labels to the axes
+#Add labels to the axes
 plt.xlabel("Test Preparation")
 plt.ylabel("Average Score")
 
-# Adding the chart title
+#Add the chart title
 plt.title("Average Exam Performance by Test Preparation")
 
-# Positioning the category labels
+#Position the category labels
 plt.xticks(bar_positions1 + bar_width, test_preparation_categories,
            rotation=20, ha='right')
 
-# Displaying the legend
+#Display the legend
 plt.legend()
 
-# Adjusting the layout
+#Adjust the layout
 plt.tight_layout()
 
-# Showing the plot
+#Show the plot
 plt.show()
 
 
