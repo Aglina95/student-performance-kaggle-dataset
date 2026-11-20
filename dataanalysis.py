@@ -344,7 +344,7 @@ plt.show()
 
 '''Create bar graph showing average scores by subject and gender'''
 
-# Defining categories and their corresponding values for two groups
+#Define categories and their corresponding values for two groups
 categories = ['Math', 'Reading', 'Writing']
 values1 = [
     female_average_math_score,
@@ -357,15 +357,15 @@ values2 = [
     male_average_writing_score
 ]
 
-# Setting the width of the bars 
+#Set the width of the bars 
 bar_width = 0.23
 # Calculating bar positions for both groups
 bar_positions1 = np.arange(len(categories))
 bar_positions2 = bar_positions1 + bar_width
 
-# Creating the first set of bars (Group 1)
+#Create the first set of bars (Group 1)
 plt.bar(bar_positions1, values1, width=bar_width, label='Female', color='purple')
-# Create the second set of bars (Group 2) next to the first set
+#Create the second set of bars (Group 2) next to the first set
 plt.bar(bar_positions2, values2, width=bar_width, label='Male', color='skyblue')
 
 # Adding labels to the axes
@@ -376,13 +376,13 @@ plt.xticks(bar_positions1 + bar_width / 2, categories)
 # Adding a title to the graph
 plt.title('Average Exam Scores by Gender and Subject')
 
-# Displaying a legend to identify the groups
+#Display a legend to identify the groups
 plt.legend()
 
-# Showing the plot
+#Show the plot
 plt.show()
 
-
+#Define categories
 education_categories = [
     "Some college",
     "High school",
@@ -392,7 +392,7 @@ education_categories = [
     "Master's degree"
 ]
 
-# Average math scores
+#Average math scores
 parental_education_math_score_average_values = [
     parental_education_some_college_average_math_score,
     parental_education_high_school_average_math_score,
@@ -402,7 +402,7 @@ parental_education_math_score_average_values = [
     parental_education_masters_average_math_score
 ]
 
-# Average reading scores
+#Average reading scores
 parental_education_reading_score_average_values = [
     parental_education_some_college_average_reading_score,
     parental_education_high_school_average_reading_score,
@@ -412,7 +412,7 @@ parental_education_reading_score_average_values = [
     parental_education_masters_average_reading_score
 ]
 
-# Average writing scores
+#Average writing scores
 parental_education_writing_score_average_values = [
     parental_education_some_college_average_writing_score,
     parental_education_high_school_average_writing_score,
@@ -422,15 +422,15 @@ parental_education_writing_score_average_values = [
     parental_education_masters_average_writing_score
 ]
 
-# Setting the width of the bars
+#Set the width of the bars
 bar_width = 0.23
 
-# Calculating bar positions
+#Calculate bar positions
 bar_positions1 = np.arange(len(education_categories))
 bar_positions2 = bar_positions1 + bar_width
 bar_positions3 = bar_positions2 + bar_width
 
-# Creating the bars
+#Create the bars
 plt.bar(bar_positions1, parental_education_math_score_average_values,
         width=bar_width, label='Math', color='#245C43')
 
@@ -440,30 +440,30 @@ plt.bar(bar_positions2, parental_education_reading_score_average_values,
 plt.bar(bar_positions3, parental_education_writing_score_average_values,
         width=bar_width, label='Writing', color='#B5D6BE')
 
-# Adding labels to the axes
+#Add labels to the axes
 plt.xlabel("Parental Education Level")
 plt.ylabel("Average Score")
 
-# Adding the chart title
+#Add the chart title
 plt.title("Average Exam Performance by Parental Education Level")
 
-# Positioning the category labels
+#Position the category labels
 plt.xticks(bar_positions1 + bar_width, education_categories,
            rotation=20, ha='right')
 
 # Displaying the legend
 plt.legend()
 
-# Adjusting the layout
+#Adjust the layout
 plt.tight_layout()
 
-# Showing the plot
+#Show the plot
 plt.show()
 
 
 test_preparation_categories = ["completed" , "none"]
 
-# Average math scores
+#Average math scores
 test_preparation_average_math_score = [
     test_preparation_math_score_completed,
     test_preparation_math_score_none,
@@ -480,10 +480,10 @@ test_preparation_average_writing_score = [
 ]
 
 
-# Setting the width of the bars
+#Set the width of the bars
 bar_width = 0.15
 
-# Calculating bar positions
+#Calculate bar positions
 bar_positions1 = np.arange(len(test_preparation_categories))
 bar_positions2 = bar_positions1 + bar_width
 bar_positions3 = bar_positions2 + bar_width
