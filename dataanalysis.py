@@ -68,7 +68,7 @@ def calc_percentage(total_data_points, total_count_of_category_data_points):
 female_percentage = calc_percentage(gender_data, total_female)
 male_percentage = calc_percentage(gender_data, total_male)
 
-print(female_percentage )
+#print(female_percentage )
 
 ''' Converts to integer'''
 def convert_to_integer(lst):
@@ -304,9 +304,9 @@ for x in math_score_data_ints:
     y = linear_regression(x, intercept, slope)
     predicted_reading_scores.append(y)
 
-#Print predicted scores
+'''#Print predicted scores
 for score in predicted_reading_scores:
-    print(round(score, 2))
+    print(round(score, 2))'''
 
 
 '''Make descriptives table using matplotlib'''
