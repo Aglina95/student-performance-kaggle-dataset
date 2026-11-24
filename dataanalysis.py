@@ -308,19 +308,6 @@ for x in math_score_data_ints:
 for score in predicted_reading_scores:
     print(round(score, 2))
 
-'''Create scatter plot'''
-slope, intercept, r, p, std_err = stats.linregress(math_score_data_ints, reading_score_data_ints)
-
-
-mymodel = list(map(lambda x: linear_regression(x,slope, intercept), math_score_data_ints))
-
-plt.scatter(math_score_data_ints, reading_score_data_ints)
-plt.plot(math_score_data_ints, mymodel)
-plt.xlabel("Math scores")
-plt.ylabel("Reading scores")
-plt.title("Linear Regression: Math vs Reading Scores")
-plt.show() 
-
 
 '''Make descriptives table using matplotlib'''
 list_of_descriptives = [[average_math_score,
@@ -517,5 +504,19 @@ plt.tight_layout()
 #Show the plot
 plt.show()
 
+
+
+'''Create scatter plot'''
+slope, intercept, r, p, std_err = stats.linregress(math_score_data_ints, reading_score_data_ints)
+
+
+mymodel = list(map(lambda x: linear_regression(x,slope, intercept), math_score_data_ints))
+
+plt.scatter(math_score_data_ints, reading_score_data_ints)
+plt.plot(math_score_data_ints, mymodel)
+plt.xlabel("Math scores")
+plt.ylabel("Reading scores")
+plt.title("Linear Regression: Math vs Reading Scores")
+plt.show() 
 
 """Data set link: https://www.kaggle.com/datasets/spscientist/students-performance-in-exams/data"""
