@@ -345,7 +345,7 @@ values2 = [
 
 #Set the width of the bars 
 bar_width = 0.23
-# Calculating bar positions for both groups
+#Calculating bar positions for both groups
 bar_positions1 = np.arange(len(categories))
 bar_positions2 = bar_positions1 + bar_width
 
@@ -359,7 +359,7 @@ plt.xlabel("Exam Subject")
 plt.ylabel("Average Score")
 plt.title("Average Exam Performance by Gender")
 plt.xticks(bar_positions1 + bar_width / 2, categories)
-# Adding a title to the graph
+#Add a title to the graph
 plt.title('Average Exam Scores by Gender and Subject')
 
 #Display a legend to identify the groups
