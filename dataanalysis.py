@@ -293,8 +293,8 @@ def find_slope_and_intercept(lst1, lst2, mean_x, mean_y):
 slope, intercept = find_slope_and_intercept(math_score_data_ints, reading_score_data_ints, average_math_score, average_reading_score)
 
 '''Linear regression'''
-def linear_regression(x, alpha, beta):
-    predicted_value = alpha * x + beta
+def linear_regression(x, slope, intercept):
+    predicted_value = slope * x + intercept
     return predicted_value
 
 #Generate predicted reading scores
@@ -311,8 +311,6 @@ for score in predicted_reading_scores:
 '''Create scatter plot'''
 slope, intercept, r, p, std_err = stats.linregress(math_score_data_ints, reading_score_data_ints)
 
-def predicted_score(x):
-  return slope * x + intercept
 
 mymodel = list(map(lambda x: linear_regression(x,slope, intercept), math_score_data_ints))
 
