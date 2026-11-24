@@ -507,8 +507,7 @@ plt.show()
 
 
 '''Create scatter plot'''
-slope, intercept, r, p, std_err = stats.linregress(math_score_data_ints, reading_score_data_ints)
-
+#slope, intercept, r, p, std_err = stats.linregress(math_score_data_ints, reading_score_data_ints)
 
 mymodel = list(map(lambda x: linear_regression(x,slope, intercept), math_score_data_ints))
 
