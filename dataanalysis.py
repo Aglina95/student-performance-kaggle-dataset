@@ -294,7 +294,7 @@ slope, intercept = find_slope_and_intercept(math_score_data_ints, reading_score_
 
 '''Linear regression'''
 def linear_regression(x, alpha, beta):
-    predicted_value = alpha + beta * x
+    predicted_value = alpha * x + beta
     return predicted_value
 
 #Generate predicted reading scores
@@ -314,7 +314,7 @@ slope, intercept, r, p, std_err = stats.linregress(math_score_data_ints, reading
 def predicted_score(x):
   return slope * x + intercept
 
-mymodel = list(map(predicted_score, math_score_data_ints))
+mymodel = list(map(lambda x: linear_regression(x,slope, intercept), math_score_data_ints))
 
 plt.scatter(math_score_data_ints, reading_score_data_ints)
 plt.plot(math_score_data_ints, mymodel)
@@ -452,7 +452,7 @@ plt.title("Average Exam Performance by Parental Education Level")
 plt.xticks(bar_positions1 + bar_width, education_categories,
            rotation=20, ha='right')
 
-# Displaying the legend
+#Display the legend
 plt.legend()
 
 #Adjust the layout
