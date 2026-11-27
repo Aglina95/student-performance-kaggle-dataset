@@ -2,8 +2,8 @@ import csv
 import math
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy.stats import norm
-from scipy import stats
+#from scipy.stats import norm
+#from scipy import stats
 
 
 '''Open and read any csv file and return its rows as a list of lists'''
@@ -36,6 +36,7 @@ def get_column(lst, row_index):
 
 '''Extract data from individual columns'''
 gender_data = get_column(students_performance_data_without_headers, 0)
+#print(gender_data)
 race_ethnicity_data = get_column(students_performance_data_without_headers, 1)
 parental_level_of_education_data = get_column(students_performance_data_without_headers, 2)
 test_preparation_course_data = get_column(students_performance_data_without_headers, 4)
@@ -53,9 +54,10 @@ def count_data_points(lst, category_data_point):
 
     return total_responses
 
-# Count occurrences of each gender in the dataset
+#Count occurrences of each gender in the dataset
 total_female = count_data_points(gender_data, "female")
 total_male = count_data_points(gender_data, "male")
+#print(f'Total female:{total_female} Total male: {total_male}')
 
 
 '''Calculates percentage'''
@@ -67,8 +69,8 @@ def calc_percentage(total_data_points, total_count_of_category_data_points):
 
 female_percentage = calc_percentage(gender_data, total_female)
 male_percentage = calc_percentage(gender_data, total_male)
+#print(f'Female %: {female_percentage} Male %: {male_percentage}')
 
-#print(female_percentage )
 
 ''' Converts to integer'''
 def convert_to_integer(lst):
@@ -97,6 +99,7 @@ def average_score(lst):
 average_math_score = average_score(math_score_data_ints)
 average_reading_score = average_score(reading_score_data_ints)
 average_writing_score = average_score(writing_score_data_ints)
+#print(f'Math: {average_math_score}, Reading: {average_reading_score}, Writing: {average_writing_score}')
 
 
 '''Pair lists to use data points for plotting or other calculations by specific categories'''
@@ -110,6 +113,7 @@ def pair_data(lst_1, lst_2):
 math_score_and_gender = pair_data(gender_data, math_score_data_ints)
 reading_score_and_gender = pair_data(gender_data, reading_score_data_ints)
 writing_score_and_gender = pair_data(gender_data, writing_score_data_ints)
+#print(writing_score_and_gender)
 
 math_score_and_parental_education = pair_data(parental_level_of_education_data, math_score_data_ints)
 reading_score_and_parental_education = pair_data(parental_level_of_education_data, reading_score_data_ints)
@@ -519,5 +523,8 @@ plt.xlabel("Math scores")
 plt.ylabel("Reading scores")
 plt.title("Linear Regression: Math vs Reading Scores")
 plt.show() 
+
+
+
 
 """Data set link: https://www.kaggle.com/datasets/spscientist/students-performance-in-exams/data"""
