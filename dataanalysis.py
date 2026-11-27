@@ -190,7 +190,7 @@ def find_median(lst):
         median = lst[median_index]
     else:
         #if n(number of values) is even, then get the two middle values
-        # and calculate their average to find the median
+        #and calculate their average to find the median
         median_position = number_of_values / 2 #find position
         first_middle_value = lst[int(median_position) - 1] 
         second_middle_value = lst[int(median_position)]
@@ -287,10 +287,13 @@ def find_slope_and_intercept(lst1, lst2, mean_x, mean_y):
     intercept = mean_y - slope_a * mean_x
 
     
-    return round(slope_a, 2) , round(intercept, 2)
+    return slope_a , intercept
 
     
 slope, intercept = find_slope_and_intercept(math_score_data_ints, reading_score_data_ints, average_math_score, average_reading_score)
+
+print(f"Slope: {round(slope, 3)}")
+print(f"Intercept: {round(intercept, 3)}")
 
 '''Linear regression'''
 def linear_regression(x, slope, intercept):
@@ -301,7 +304,7 @@ def linear_regression(x, slope, intercept):
 predicted_reading_scores = []
 
 for x in math_score_data_ints:
-    y = linear_regression(x, intercept, slope)
+    y = linear_regression(x, slope, intercept)
     predicted_reading_scores.append(y)
 
 '''#Print predicted scores
@@ -503,7 +506,6 @@ plt.tight_layout()
 
 #Show the plot
 plt.show()
-
 
 
 '''Create scatter plot'''
